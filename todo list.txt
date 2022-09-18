@@ -1,0 +1,23 @@
+- for-loop for adjusting the rows and columns, when
+    changing the size with the slider.
+
+user input N by sliding 
+
+NxN
+
+reference: 
+
+https://parkercon.github.io/etch-a-sketch/
+https://silinde87.github.io/top-etch-a-sketch/
+
+
+Rainbow colors:
+    red
+    orange
+    yellow
+    green
+    blue
+    indigo
+    violet
+
+    

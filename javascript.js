@@ -10,7 +10,7 @@ const colorPicker = document.querySelector(".color-picker");
 canvasArea(slider.value);
 
 
-let currentColor = "#ffffff";
+let currentColor = colorPicker.value;
 const eraser = false;
 const rainbowColor = false;
 

@@ -1,21 +1,19 @@
 
 const canvas = document.querySelector(".canvas");
 
+
 //features buttons
 const slider = document.querySelector("#sliderValue");
 const resetButton = document.querySelector(".reset-button");
 const eraserButton = document.querySelector(".eraser-button");
 const colorPicker = document.querySelector(".color-picker");
-
-
+canvasArea(slider.value);
 
 
 let currentColor = "#ffffff";
 const eraser = false;
 const rainbowColor = false;
-const reset = false;
 
-// --- FEATURES ---
 
 //slider 
 slider.addEventListener("input",(e) => {
@@ -26,26 +24,23 @@ slider.addEventListener("input",(e) => {
     
 })
 
+//reset button eventlistener
+
+resetButton.addEventListener("click", () => {
+    const gridItemColorAll = document.querySelectorAll(".grid-item");
+
+    gridItemColorAll.forEach((element) => {
+        element.style["background-color"] = "#ffffff";
+    })
+
+})
 
 
 // color picker eventlistener
 
 colorPicker.addEventListener("input", (e) => {
     currentColor = e.target.value;
-    console.log(currentColor);
 })
-
-
-
-
-// canvas eventlistener
-canvas.addEventListener("click", () => {
-    console.log(currentColor);
-})
-canvas.addEventListener("mousedown", () => {
-    // console.log("holding mouse button down");
-})
-
 
 // GRID CANVAS gets bigger or smaller when 
 // sliding the grid-slider
@@ -63,11 +58,19 @@ function canvasArea (size) {
 
         // create current grid size
         const gridItem = document.createElement("div");
-        // gridItem.textContent = index;
         gridItem.classList.add("grid-item");
         canvasContainer.appendChild(gridItem);
 
     }
 
 }
+
+canvas.addEventListener("mouseover", (e) => {
+    const target = e.target;    
+    if (target.matches(".grid-item")) {
+        target.style["background-color"] = currentColor;
+    }
+    
+})
+
 

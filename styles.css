@@ -5,6 +5,7 @@ body {
 .grid-input {
     margin-top:10px;
     width: 50px;
+    
 }
 
 .header {
@@ -26,8 +27,8 @@ body {
 }
 
 .grid-item {
-    background-color: white;
-    
+    background-color: black;
+  
 }
 
 .features * {

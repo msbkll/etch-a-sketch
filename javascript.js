@@ -90,8 +90,7 @@ function canvasArea (size) {
 }
 
 canvas.addEventListener("mouseover", (e) => {
-    const target = e.target;    
-    
+    const target = e.target;        
     
     if (eraserButton.value == "true") {
         if (target.matches(".grid-item")) {

@@ -10,7 +10,7 @@ const colorPicker = document.querySelector(".color-picker");
 const rainbowButton = document.querySelector(".rainbow-button");
 
 let currentColor = colorPicker.value;
-const eraser = false;
+
 
 canvasArea(slider.value);
 
@@ -19,8 +19,10 @@ canvasArea(slider.value);
 rainbowButton.addEventListener("click", () => {
     if (rainbowButton.value == "false") {
         rainbowButton.value = "true";
+        rainbowButton.style["background-color"] = "red";
     } else if (rainbowButton.value == "true") {
         rainbowButton.value = "false";
+        rainbowButton.style["background-color"] = "";
     }
 });
 
@@ -32,6 +34,19 @@ slider.addEventListener("input",(e) => {
     canvasArea(b);
     
 });
+
+// eraser button eventlistener
+
+eraserButton.addEventListener("click", (e) => {
+    if (eraserButton.value == "false") {
+        eraserButton.value = "true";
+        eraserButton.style["background-color"] = "red";
+    } else if (eraserButton.value == "true") {
+        eraserButton.value = "false";
+        eraserButton.style["background-color"] = "";
+    }
+})
+
 
 //reset button eventlistener
 
@@ -77,19 +92,26 @@ function canvasArea (size) {
 canvas.addEventListener("mouseover", (e) => {
     const target = e.target;    
     
-
-    if (rainbowButton.value == "false") {
+    
+    if (eraserButton.value == "true") {
         if (target.matches(".grid-item")) {
-            target.style["background-color"] = currentColor;
+            target.style["background-color"] = "white";
         }
-    };
-    if (rainbowButton.value == "true") {
-        if (target.matches(".grid-item")) {
-            const rainbowColor = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
-            const randomNumber = Math.floor(Math.random() * 7);
-            target.style["background-color"] = rainbowColor[randomNumber];
+    } else {
+        if (rainbowButton.value == "false") {
+            if (target.matches(".grid-item")) {
+                target.style["background-color"] = currentColor;
+            }
+        };
+        if (rainbowButton.value == "true") {
+            if (target.matches(".grid-item")) {
+                const rainbowColor = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+                const randomNumber = Math.floor(Math.random() * 7);
+                target.style["background-color"] = rainbowColor[randomNumber];
+            }
         }
     }
+
     
 })
 
